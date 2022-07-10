@@ -8,10 +8,10 @@ export const Products = () => {
     products.push(productObj[item]);
   }
   return (
-    <>
+    <div className="products">
       {products.map((product) => (
         <Product product={product} />
       ))}
-    </>
+    </div>
   );
 };

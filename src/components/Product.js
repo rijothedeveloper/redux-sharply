@@ -6,9 +6,11 @@ export const Product = ({ product }) => {
   const addToCart = () => {
     dispatch(add(product));
   };
-  const removeFromCart = () => {};
+  const removeFromCart = () => {
+    dispatch(remove(product));
+  };
   return (
-    <div>
+    <div className="product">
       <p>{product.name}</p>
       <button onClick={() => addToCart()}>Add to Cart</button>
       <button onClick={removeFromCart}>Remove from Cart</button>

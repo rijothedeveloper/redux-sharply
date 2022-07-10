@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    products: [],
+    products: {},
     total: +0,
   },
   reducers: {
@@ -11,11 +11,21 @@ export const cartSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.products.push(product.payload);
+      if (state.products[product.payload.name]) {
+        state.products[product.payload.name].quantity += 1;
+      } else {
+        state.products[product.payload.name] = { ...product, quantity: 1 };
+      }
       state.total += +product.payload.price;
     },
     remove: (state, product) => {
-      state.total -= +product.payload.price;
+      if (
+        state.products[product.payload.name] &&
+        state.products[product.payload.name].quantity > 0
+      ) {
+        state.products[product.payload.name].quantity -= 1;
+        state.total -= +product.payload.price;
+      }
     },
   },
 });
