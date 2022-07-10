@@ -5,7 +5,7 @@ export const Products = () => {
   const productObj = data.products;
   const products = [];
   for (const item in productObj) {
-    products.push(productObj[item]);
+    products.push({ ...productObj[item], id: item });
   }
   return (
     <div className="products">
