@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Products } from "./pages/Products";
+import { Products } from "./pages/Products.tsx";
 import { ShoppingCart } from "./components/ShoppingCart.tsx";
+import React, { FC } from "react";
 
 function App() {
   return (
