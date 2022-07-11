@@ -1,9 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { FC } from "react";
+import { useAppSelector } from "../redux/hooks.ts";
 
-export const ShoppingCart = () => {
-  const cart = useSelector((state) => state.cart);
-  const products = [];
+export const ShoppingCart: FC = () => {
+  const cart = useAppSelector((state) => state.cart);
+  const products: any[] = [];
   for (const product in cart.products) {
     products.push(
       <li>

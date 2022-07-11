@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+interface cartState {
+  products: any;
+  total: number;
+}
+const initialState: cartState = {
+  products: {},
+  total: +0,
+};
 export const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    products: {},
-    total: +0,
-  },
+  initialState,
   reducers: {
     add: (state, product) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It

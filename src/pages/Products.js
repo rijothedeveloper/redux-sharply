@@ -1,5 +1,5 @@
 import data from "../assets/data.json";
-import { Product } from "../components/Product";
+import { Product } from "../components/Product.tsx";
 
 export const Products = () => {
   const productObj = data.products;

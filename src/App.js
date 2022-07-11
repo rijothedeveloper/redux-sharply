@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Products } from "./pages/Products";
-import { ShoppingCart } from "./components/ShoppingCart";
+import { ShoppingCart } from "./components/ShoppingCart.tsx";
 
 function App() {
   return (

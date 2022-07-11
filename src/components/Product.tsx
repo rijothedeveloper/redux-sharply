@@ -1,7 +1,17 @@
+import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { add, remove } from "../redux/shoppingCartSlice";
+import { add, remove } from "../redux/shoppingCartSlice.ts";
+import React from "react";
 
-export const Product = ({ product }) => {
+interface ProductType {
+  name: String;
+}
+
+interface Props {
+  product: ProductType;
+}
+
+export const Product: FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(add(product));
