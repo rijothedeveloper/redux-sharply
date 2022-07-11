@@ -5,14 +5,16 @@ import data from "../assets/data.json";
 // @ts-ignore
 import { Product } from "../components/Product.tsx";
 
+interface iProduct {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image_url: string;
+}
+
 export const Products: FC = () => {
-  const productObj = data.products;
-  const products = [];
-  for (const item in productObj) {
-    /* eslint-disable @typescript-eslint/ban-ts-comment */
-    // @ts-ignore
-    products.push({ ...productObj[item], id: item });
-  }
+  const products: iProduct[] = data.products;
   return (
     <div className="products">
       {products.map((product) => (
